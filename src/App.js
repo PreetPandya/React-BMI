@@ -48,12 +48,14 @@ function App() {
               Weight (kg)
             </span>
             <input
-              type="text"
+              type="number"
+              min = '0'
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
               placeholder="Enter Your Weight"
               value={weight}
+              required
               onChange={(e) => setWeight(e.target.value)}
             />
           </div>
@@ -62,12 +64,14 @@ function App() {
               Height (m)
             </span>
             <input
-              type="text"
+              type="number"
+              min = '0'
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
               placeholder="Enter Your Height"
               value={height}
+              required
               onChange={(event) => setHeight(event.target.value)}
             />
           </div>
