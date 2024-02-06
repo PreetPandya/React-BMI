@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
-  const [weight, setWeight] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
   const [bmi, setBMI] = useState(0);
   const [result, setResult] = useState();
 
@@ -12,11 +12,13 @@ function App() {
 
   let calculateBMI = (e) => {
     e.preventDefault();
-    if (!weight || !height) {
+    const weightFloat = parseFloat(weight);
+    const heightFloat = parseFloat(height);
+
+    if (isNaN(weightFloat) || isNaN(heightFloat) || weightFloat <= 0 || heightFloat <= 0) {
       alert("Enter Valid Weight And Height.");
-    } 
-    else{
-      let bmi = parseFloat(weight) / (parseFloat(height) * parseFloat(height));
+    } else {
+      let bmi = weightFloat / (heightFloat * heightFloat);
       setBMI(bmi.toFixed(2));
 
       if (bmi < 18.5) {
@@ -33,8 +35,8 @@ function App() {
 
   function resetBTN() {
     setBMI(0);
-    setWeight(0);
-    setHeight(0);
+    setWeight("");
+    setHeight("");
     setResult();
   }
 
@@ -48,8 +50,7 @@ function App() {
               Weight (kg)
             </span>
             <input
-              type="number"
-              min = '0'
+              type="text"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
@@ -64,8 +65,7 @@ function App() {
               Height (m)
             </span>
             <input
-              type="number"
-              min = '0'
+              type="text"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
