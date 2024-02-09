@@ -6,48 +6,82 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color:#12372A;
-  }
-  
-  .container {
+    background-color: #12372A;
+}
+.container {
     text-align: center;
     padding: 80px;
     border-radius: 8px;
     background-color: #436850;
-    display: block;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  h2{
-    font-family:'Times New Roman', Times, serif ;
+}
+
+h2,
+h4,
+p {
+    font-family: 'Times New Roman', Times, serif;
+    color: #FBFADA;
+}
+
+h2 {
     position: relative;
     bottom: 40px;
-    color: #FBFADA;
-  }
+}
 
-  h4{
-    font-family:'Times New Roman', Times, serif ;
+h4 {
     position: relative;
     top: 40px;
-    color: #FBFADA;
-  }
+}
 
-  p{
+p {
     position: relative;
     top: 50px;
-    color: #FBFADA;
-    font-family:'Times New Roman', Times, serif;
-  }
+}
 
-  .form-control{
-    background-color:#FBFADA;
-  }
+.form-control {
+    background-color: #FBFADA;
+}
 
-  
-  .input-group-text{
+.input-group-text {
     background-color: #FBFADA;
     color: #12372A;
-  }
- 
-  
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 90px 20px;
+        border-radius: 20px;
+    }
+
+    h2 {
+        font-size: 45px;
+    }
+
+    h4 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #cccccc;
+    }
+
+    .container {
+        background-color: #2c2c2c;
+    }
+
+    .form-control,
+    .input-group-text {
+        background-color: #2c2c2c;
+        color: #cccccc;
+    }
+
+    .form-control::placeholder {
+        color: whitesmoke;
+    }
+}
